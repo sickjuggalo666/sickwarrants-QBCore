@@ -22,8 +22,6 @@ end)
 
 RegisterServerEvent('sickwarrants:createWarrant')
 AddEventHandler('sickwarrants:createWarrant', function(source, firstname,lastname,case,bday,reason)
-    local src = source
-    local xPlayer = QBCore.Functions.GetPlayer(src)
     MySQL.Async.execute('INSERT INTO warrants (firstname, lastname, `case`, bday, reason, active) VALUES (@firstname, @lastname, @case, @bday, @reason, @active)',
     {
         ['@firstname']  = firstname,
@@ -43,8 +41,6 @@ end)
 
 RegisterServerEvent('sickwarrants:setBounty')
 AddEventHandler('sickwarrants:setBounty', function(source,amount,case)
-    local src = source
-    local xPlayer = QBCore.Functions.GetPlayer(src)
     MySQL.Async.execute('UPDATE warrants SET bounty WHERE case =@case',
     {
         ['@case']       = case,
@@ -60,8 +56,6 @@ end)
 
 RegisterServerEvent('sickwarrants:DeleteWarrant')  -- Used to Delete when a Case # is entered!
 AddEventHandler('sickwarrants:DeleteWarrant', function(source,case)
-    local src = source
-    local xPlayer = QBCore.Functions.GetPlayer(src)
     MySQL.Async.execute('DELETE FROM warrants WHERE `case` = @case',
     {
         ['@case'] = case
