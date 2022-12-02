@@ -163,7 +163,7 @@ function ShowCreateWarrantMenu()
                 -- default = "password123", -- Default text option, this is optional
             },
             {
-                text = "Case Number, -- text you want to be displayed as a place holder
+                text = "Case Number", -- text you want to be displayed as a place holder
                 name = "caseNumber", -- name of the input should be unique otherwise it might override
                 type = "number", -- type of the input - number will not allow non-number characters in the field so only accepts 0-9
                 isRequired = true, -- Optional [accepted values: true | false] but will submit the form if no value is inputted
